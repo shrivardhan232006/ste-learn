@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Four-Stroke Engine · STE Study Manual</title>
+<meta name="description" content="How a four-stroke engine works, in ASD-STE100 Simplified Technical English.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M7 9 L25 6 L27 24 L5 26 Z' fill='%23fbeae3' stroke='%23d97757' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../assets/manual.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
+<script src="../../assets/manual.js" defer></script>
+</head>
+<body>
+<div class="scrim"></div>
+
+<header class="topbar">
+  <a class="brand" href="../../">
+    <svg viewBox="0 0 42 42" aria-hidden="true"><rect x="12" y="5" width="18" height="22" rx="3" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2.5"/><rect x="14" y="13" width="14" height="6" rx="1.5" fill="var(--accent)"/><path d="M21 19 L17 32" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/><circle cx="21" cy="33" r="6" fill="var(--bg)" stroke="var(--accent)" stroke-width="2.5"/></svg>
+    <span class="brand-title">Four-Stroke Engine</span>
+  </a>
+  <button class="icon-btn" data-action="menu" aria-label="Open contents">Contents</button>
+</header>
+
+<div class="shell">
+  <aside class="sidebar" aria-label="Contents">
+    <a class="brand" href="../../" title="All lessons">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><rect x="12" y="5" width="18" height="22" rx="3" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2.5"/><rect x="14" y="13" width="14" height="6" rx="1.5" fill="var(--accent)"/><path d="M21 19 L17 32" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/><circle cx="21" cy="33" r="6" fill="var(--bg)" stroke="var(--accent)" stroke-width="2.5"/></svg>
+      <div>
+        <div class="brand-title">Four-Stroke Engine</div>
+        <div class="brand-sub">Study manual · Rev 1</div>
+      </div>
+    </a>
+    <nav><ol class="toc"></ol></nav>
+    <div class="progress-card" aria-live="polite">
+      <div class="row"><span>Learning checklist</span><span class="count">0 / 0</span></div>
+      <div class="bar"><i></i></div>
+    </div>
+    <div class="side-tools">
+      <button class="icon-btn" data-action="theme" type="button">Theme</button>
+      <button class="icon-btn" data-action="reset" type="button">Reset</button>
+      <a class="icon-btn" href="../../" style="text-decoration:none">All lessons</a>
+    </div>
+    <p class="side-note">Written in ASD-STE100 Simplified Technical English. Sample lesson, 27 Oct 2026.</p>
+  </aside>
+
+  <div class="content">
+  <main>
+
+    <p class="eyebrow">Study manual · ASD-STE100 style · 27 Oct 2026</p>
+    <h1>How a Four-Stroke Engine Works</h1>
+    <p class="lede">This manual explains how a four-stroke engine changes the energy in fuel into rotation. It shows the parts, the four strokes, and the ideal cycle. You can move a model of the engine and change its compression ratio.</p>
+
+    <ul class="chips">
+      <li class="chip">Level: <b>Intro</b></li>
+      <li class="chip">Time: <b>20 min</b></li>
+      <li class="chip">Goal: <b>Explain one cycle</b></li>
+    </ul>
+
+    <div class="key-idea">
+      <span class="label">The one idea</span>
+      <p class="big">The engine does four strokes in two turns of the crankshaft, but only one stroke, the power stroke, gives work to the crankshaft.</p>
+    </div>
+
+    <!-- ===================== 01 ===================== -->
+    <section class="chapter" id="summary" data-short="Summary">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>Summary</h2>
+      <p>A <dfn data-term="four-stroke engine">four-stroke engine</dfn> burns a mixture of fuel and air in a closed cylinder. The hot gas pushes a piston. The piston turns a crankshaft. The engine does this in a cycle of four strokes.</p>
+      <ul>
+        <li>A <dfn data-term="stroke">stroke</dfn> is one movement of the piston, up or down.</li>
+        <li>Two valves control the flow of gas into and out of the cylinder.</li>
+        <li>The ratio of the largest volume to the smallest volume controls the ideal efficiency.</li>
+      </ul>
+    </section>
+
+    <!-- ===================== 02 ===================== -->
+    <section class="chapter" id="parts" data-short="The parts">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>The parts</h2>
+      <p>Learn the names of these parts first. This manual uses the same name for each part in all chapters.</p>
+
+      <figure class="numbered">
+        <div class="frame pad warm">
+          <svg id="fig-parts" viewBox="0 0 800 440" role="img" aria-label="Section of one cylinder with labels for each part"></svg>
+        </div>
+        <figcaption>Section through one cylinder at the start of the power stroke. The <dfn data-term="connecting rod">connecting rod</dfn> attaches the piston to the crankshaft.</figcaption>
+      </figure>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Part</th><th>Function</th></tr></thead>
+        <tbody>
+          <tr><td>Piston</td><td>Moves up and down in the cylinder.</td></tr>
+          <tr><td>Connecting rod</td><td>Transmits the force from the piston to the crankshaft.</td></tr>
+          <tr><td>Crankshaft</td><td>Changes the linear movement of the piston into rotation.</td></tr>
+          <tr><td>Intake valve</td><td>Lets the fuel-air mixture into the cylinder.</td></tr>
+          <tr><td>Exhaust valve</td><td>Lets the burned gas out of the cylinder.</td></tr>
+          <tr><td>Spark plug</td><td>Makes a spark that starts the combustion.</td></tr>
+        </tbody>
+      </table></div>
+
+      <figure class="numbered">
+        <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_L18_cutaway_motor.jpg?width=1280" alt="A real car engine with a section cut away to show the pistons and crankshaft" loading="lazy"></div>
+        <figcaption>A real engine with a part of the block cut away. Find the pistons, the connecting rods, and the crankshaft.
+          <span class="credit" data-ste="skip">Photo: <a href="https://commons.wikimedia.org/wiki/File:Nissan_L18_cutaway_motor.jpg">Nissan L18 cutaway motor</a>, via Wikimedia Commons. See the file page for the author and license.</span>
+        </figcaption>
+      </figure>
+
+      <div class="check" data-answer="b">
+        <span class="label">Check-in · The parts</span>
+        <p class="q">Which part changes the up-and-down movement of the piston into rotation?</p>
+        <div class="opts">
+          <button class="opt" type="button" data-k="a"><span class="k">A</span><span>The intake valve</span></button>
+          <button class="opt" type="button" data-k="b"><span class="k">B</span><span>The crankshaft</span></button>
+          <button class="opt" type="button" data-k="c"><span class="k">C</span><span>The spark plug</span></button>
+        </div>
+        <div class="why"><p>The connecting rod pushes on an offset pin of the crankshaft. Thus, the crankshaft turns.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== 03 ===================== -->
+    <section class="chapter" id="strokes" data-short="The four strokes">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>The four strokes</h2>
+      <p>Each stroke has one function. The valves and the spark plug operate at a different time in each stroke. Figure 3 shows the four strokes in their sequence.</p>
+
+      <div class="fig-grid" id="stroke-grid">
+        <figure>
+          <div class="frame warm"><svg viewBox="0 0 480 400" data-angle="90"></svg></div>
+          <div class="sub"><span class="l">A</span> Intake</div>
+          <figcaption>The piston moves down. The intake valve is open. The piston pulls the fuel-air mixture into the cylinder.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame warm"><svg viewBox="0 0 480 400" data-angle="270"></svg></div>
+          <div class="sub"><span class="l">B</span> Compression</div>
+          <figcaption>The two valves are closed. The piston moves up and <dfn data-term="compress">compresses</dfn> the mixture into a small volume.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame warm"><svg viewBox="0 0 480 400" data-angle="400"></svg></div>
+          <div class="sub"><span class="l">C</span> Power</div>
+          <figcaption>The spark plug starts the combustion. The hot gas pushes the piston down. This stroke gives work to the crankshaft.</figcaption>
+        </figure>
+        <figure>
+          <div class="frame warm"><svg viewBox="0 0 480 400" data-angle="630"></svg></div>
+          <div class="sub"><span class="l">D</span> Exhaust</div>
+          <figcaption>The exhaust valve is open. The piston moves up and pushes the burned gas out of the cylinder.</figcaption>
+        </figure>
+      </div>
+
+      <div class="callout note">
+        <span class="tag">Note</span>
+        <div><p>The highest position of the piston is <dfn data-term="top dead center">top dead center</dfn> (TDC). The lowest position is <dfn data-term="bottom dead center">bottom dead center</dfn> (BDC). Each stroke goes from one of these positions to the other.</p></div>
+      </div>
+
+      <div class="check" data-answer="c">
+        <span class="label">Check-in · The four strokes</span>
+        <p class="q">In which stroke does the hot gas push the piston down?</p>
+        <div class="opts">
+          <button class="opt" type="button" data-k="a"><span class="k">A</span><span>The intake stroke</span></button>
+          <button class="opt" type="button" data-k="b"><span class="k">B</span><span>The compression stroke</span></button>
+          <button class="opt" type="button" data-k="c"><span class="k">C</span><span>The power stroke</span></button>
+        </div>
+        <div class="why"><p>In the intake stroke, the piston also moves down, but the crankshaft pulls it. Only in the power stroke does the gas push the piston.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== 04 ===================== -->
+    <section class="chapter" id="model" data-short="Turn the crankshaft">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>Turn the crankshaft</h2>
+      <p>Use this model to see one full cycle. Move the control to turn the crankshaft. Examine the valves, the spark, and the color of the gas.</p>
+
+      <div class="widget" id="crank-widget">
+        <div class="stage"><svg id="crank-svg" viewBox="0 0 800 450" role="img" aria-label="Model of one cylinder that you can turn"></svg></div>
+        <div class="controls">
+          <div class="control"><label for="crank">Crank angle</label><input id="crank" type="range" min="0" max="720" step="1" value="0"><output id="crank-out" for="crank">0°</output></div>
+          <div class="readout">
+            <button class="btn" id="play" type="button">Play</button>
+            <span class="chip">Stroke: <b id="stroke-name">Intake</b></span>
+            <span class="chip">Intake valve: <b id="iv">Closed</b></span>
+            <span class="chip">Exhaust valve: <b id="ev">Closed</b></span>
+          </div>
+        </div>
+      </div>
+      <p class="credit" style="margin-bottom:28px">The model shows a simplified <dfn data-term="valve timing">valve timing</dfn>. In a real engine, each valve opens before its stroke starts and closes after its stroke ends.</p>
+
+      <div class="check" data-answer="b">
+        <span class="label">Check-in · Turn the crankshaft</span>
+        <p class="q">How many turns of the crankshaft make one full cycle?</p>
+        <div class="opts">
+          <button class="opt" type="button" data-k="a"><span class="k">A</span><span>One turn (360°)</span></button>
+          <button class="opt" type="button" data-k="b"><span class="k">B</span><span>Two turns (720°)</span></button>
+          <button class="opt" type="button" data-k="c"><span class="k">C</span><span>Four turns (1440°)</span></button>
+        </div>
+        <div class="why"><p>Each stroke is a half turn of the crankshaft. Four half turns are equal to two turns.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== 05 ===================== -->
+    <section class="chapter" id="cycle" data-short="The ideal cycle">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>The ideal cycle</h2>
+      <p>Engineers show the cycle on a graph of pressure against volume. This graph shows the ideal <dfn data-term="otto cycle">Otto cycle</dfn>. The area inside the loop is equal to the work from one cycle.</p>
+
+      <figure class="numbered">
+        <div class="frame">
+          <div class="chart-box"><canvas id="pv" aria-label="Pressure against volume for the ideal Otto cycle"></canvas></div>
+          <div class="controls" style="padding:4px 22px 20px">
+            <div class="control"><label for="cr">Compression ratio</label><input id="cr" type="range" min="4" max="14" step="0.5" value="10"><output id="cr-out" for="cr">10</output></div>
+            <div class="readout"><span class="chip">Ideal efficiency: <b id="eta">60.2%</b></span><span class="chip">Peak pressure: <b id="pmax">–</b></span></div>
+          </div>
+        </div>
+        <figcaption>Calculated values, not measured values. The model uses a 500 cm³ cylinder and air with γ = 1.4. The start condition is 1 bar and 300 K. The combustion increases the temperature by 1500 K.</figcaption>
+      </figure>
+
+      <p>The <dfn data-term="compression ratio">compression ratio</dfn> r is the largest volume divided by the smallest volume. The ideal efficiency is η = 1 − 1/r<sup>γ−1</sup>. A real engine has a lower efficiency because of heat loss and friction.</p>
+
+      <div class="callout caution">
+        <span class="tag">Caution</span>
+        <div><p>Do not increase the compression ratio of a real petrol engine without data. A high compression ratio can cause knock, which can damage the piston.</p></div>
+      </div>
+
+      <h3>Calculate the ideal efficiency</h3>
+      <ol class="steps">
+        <li>Find the compression ratio r of the engine.</li>
+        <li>Calculate r to the power of 0.4.</li>
+        <li>Divide 1 by the result of step 2.</li>
+        <li>Subtract the result of step 3 from 1.</li>
+        <li>Multiply the result by 100 to get a percentage.</li>
+      </ol>
+
+      <div class="check" data-answer="b">
+        <span class="label">Check-in · The ideal cycle</span>
+        <p class="q">Use the steps above. What is the ideal efficiency for a compression ratio of 8?</p>
+        <div class="opts">
+          <button class="opt" type="button" data-k="a"><span class="k">A</span><span>44%</span></button>
+          <button class="opt" type="button" data-k="b"><span class="k">B</span><span>56.5%</span></button>
+          <button class="opt" type="button" data-k="c"><span class="k">C</span><span>87.5%</span></button>
+        </div>
+        <div class="why"><p>8 to the power of 0.4 is 2.297. 1 divided by 2.297 is 0.435. 1 − 0.435 is 0.565, thus 56.5%. Answer C is 1 − 1/8, which does not use the power.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== 06 ===================== -->
+    <section class="chapter" id="checklist" data-short="Checklist">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>What you can do now</h2>
+      <ul class="checklist">
+        <li><label><input type="checkbox"><span>I can name the six main parts of one cylinder.</span></label></li>
+        <li><label><input type="checkbox"><span>I can tell the position of each valve in each stroke.</span></label></li>
+        <li><label><input type="checkbox"><span>I can explain why one cycle needs two turns of the crankshaft.</span></label></li>
+        <li><label><input type="checkbox"><span>I can calculate the ideal efficiency from the compression ratio.</span></label></li>
+      </ul>
+    </section>
+
+    <!-- ===================== 07 ===================== -->
+    <section class="chapter" id="go-further" data-short="Go further">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>Go further</h2>
+      <div class="explore">
+        <div class="card"><span class="label">Deeper</span><h3>Valve timing</h3><p>Learn why real valves open early and close late.</p></div>
+        <div class="card"><span class="label">Wider</span><h3>Diesel cycle</h3><p>Compare heat addition at constant pressure with the Otto cycle.</p></div>
+        <div class="card"><span class="label">Hands-on</span><h3>Indicated work</h3><p>Calculate the area of the p–V loop for r = 10.</p></div>
+      </div>
+      <h4>Sources</h4>
+      <ol>
+        <li><a href="https://en.wikipedia.org/wiki/Four-stroke_engine">Four-stroke engine — Wikipedia</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Otto_cycle">Otto cycle — Wikipedia</a></li>
+      </ol>
+    </section>
+
+    <!-- ===================== 08 ===================== -->
+    <section class="chapter" id="glossary" data-short="Glossary">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>Glossary</h2>
+      <p>This page uses these technical nouns. Each name has one meaning on this page.</p>
+      <dl class="glossary">
+        <dt>bottom dead center</dt><dd>The lowest position of the piston in the cylinder.</dd>
+        <dt>combustion</dt><dd>The fast burn of the fuel-air mixture that makes hot gas.</dd>
+        <dt>compress</dt><dd>To decrease the volume of a gas, which increases its pressure.</dd>
+        <dt>compression ratio</dt><dd>The largest volume of the cylinder divided by the smallest volume.</dd>
+        <dt>connecting rod</dt><dd>The rod that attaches the piston to the crankshaft.</dd>
+        <dt>crankshaft</dt><dd>The shaft that changes the linear movement of the piston into rotation.</dd>
+        <dt>four-stroke engine</dt><dd>An engine that does one cycle in four strokes of the piston.</dd>
+        <dt>knock</dt><dd>Combustion that starts in the wrong place or at the wrong time and makes a sharp sound.</dd>
+        <dt>Otto cycle</dt><dd>The ideal cycle of a spark ignition engine, with heat addition at constant volume.</dd>
+        <dt>stroke</dt><dd>One movement of the piston from one dead center to the other.</dd>
+        <dt>top dead center</dt><dd>The highest position of the piston in the cylinder.</dd>
+        <dt>valve timing</dt><dd>The crank angles at which each valve opens and closes.</dd>
+      </dl>
+    </section>
+
+    <footer class="page-foot">
+      <span>Four-Stroke Engine · Rev 1 · 27 October 2026</span>
+      <a href="../../">All lessons →</a>
+    </footer>
+  </main>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+  const rad = (d) => d * Math.PI / 180;
+
+  // Simplified valve lift: intake 0–180°, exhaust 540–720°.
+  const lift = (a, s, e) => (a > s && a < e) ? Math.sin(Math.PI * (a - s) / (e - s)) : 0;
+  function strokeOf(a) { a = ((a % 720) + 720) % 720; return ["Intake", "Compression", "Power", "Exhaust"][Math.floor(a / 180)]; }
+
+  // Draw one cylinder. cx = center x, top = y of the cylinder head.
+  function drawEngine(svg, angle, cx = 240, top = 40, scale = 1) {
+    svg.innerHTML = "";
+    const g = el("g", { transform: `translate(${cx} ${top}) scale(${scale})` }, svg);
+    const a = ((angle % 720) + 720) % 720;
+    const R = 46, L = 140, bore = 120, cyH = 230, crankY = 300;
+    const th = rad(a);
+    const pinY = crankY - (R * Math.cos(th) + Math.sqrt(L * L - Math.pow(R * Math.sin(th), 2)));
+    const crankX = R * Math.sin(th), crankPY = crankY - R * Math.cos(th);
+    const pistonTop = pinY - 34, pistonH = 58;
+    const stroke = strokeOf(a);
+
+    // gas color
+    let gas = "var(--blue-soft)", gasOp = 1;
+    if (stroke === "Compression") { gas = "var(--blue-soft)"; }
+    if (stroke === "Power") { gas = "var(--accent)"; gasOp = 0.25 + 0.65 * (1 - (a - 360) / 180); }
+    if (stroke === "Exhaust") { gas = "var(--muted)"; gasOp = 0.28 * (1 - (a - 540) / 180) + 0.06; }
+    if (stroke === "Intake") { gasOp = 0.4 + 0.6 * (a / 180); }
+
+    // crankcase
+    el("circle", { cx: 0, cy: crankY, r: 78, fill: "var(--panel-2)", stroke: "var(--line-2)", "stroke-width": 2 }, g);
+    // cylinder walls + head
+    el("rect", { x: -bore / 2 - 16, y: 0, width: bore + 32, height: cyH, rx: 10, fill: "var(--panel-2)", stroke: "var(--line-2)", "stroke-width": 2 }, g);
+    el("rect", { x: -bore / 2, y: 22, width: bore, height: cyH - 22, fill: "var(--bg)" }, g);
+    // gas
+    el("rect", { x: -bore / 2, y: 22, width: bore, height: Math.max(0, pistonTop - 22), fill: gas, "fill-opacity": gasOp }, g);
+    // ports
+    el("path", { d: `M ${-bore / 2 - 16} 6 L -110 -10 L -150 -10 L -150 16 L -110 16 L ${-bore / 2 + 6} 22`, fill: "var(--panel-2)", stroke: "var(--line-2)", "stroke-width": 2 }, g);
+    el("path", { d: `M ${bore / 2 + 16} 6 L 110 -10 L 150 -10 L 150 16 L 110 16 L ${bore / 2 - 6} 22`, fill: "var(--panel-2)", stroke: "var(--line-2)", "stroke-width": 2 }, g);
+    // valves
+    const iv = lift(a, 0, 180) * 22, ev = lift(a, 540, 720) * 22;
+    [[-30, iv, "var(--blue)"], [30, ev, "var(--muted)"]].forEach(([x, l, c]) => {
+      el("line", { x1: x, y1: -22, x2: x, y2: 20 + l, stroke: "var(--ink)", "stroke-width": 4, "stroke-linecap": "round" }, g);
+      el("path", { d: `M ${x - 15} ${24 + l} L ${x + 15} ${24 + l} L ${x + 6} ${17 + l} L ${x - 6} ${17 + l} Z`, fill: l > 0.5 ? c : "var(--ink)" }, g);
+    });
+    // spark plug
+    el("rect", { x: -6, y: -26, width: 12, height: 40, rx: 3, fill: "var(--ink)" }, g);
+    el("rect", { x: -9, y: -36, width: 18, height: 12, rx: 3, fill: "var(--line-2)" }, g);
+    if (a >= 350 && a <= 385) {
+      const s = el("g", {}, g);
+      for (let i = 0; i < 8; i++) {
+        const t = rad(i * 45);
+        el("line", { x1: Math.cos(t) * 6, y1: 22 + Math.sin(t) * 6, x2: Math.cos(t) * 16, y2: 22 + Math.sin(t) * 16, stroke: "var(--accent)", "stroke-width": 3, "stroke-linecap": "round" }, s);
+      }
+      el("circle", { cx: 0, cy: 22, r: 5, fill: "var(--accent)" }, s);
+    }
+    // connecting rod
+    el("line", { x1: 0, y1: pinY, x2: crankX, y2: crankPY, stroke: "var(--ink-2)", "stroke-width": 14, "stroke-linecap": "round" }, g);
+    // piston
+    el("rect", { x: -bore / 2 + 3, y: pistonTop, width: bore - 6, height: pistonH, rx: 6, fill: "var(--accent-soft)", stroke: "var(--accent)", "stroke-width": 2.5 }, g);
+    [10, 18].forEach((o) => el("line", { x1: -bore / 2 + 3, y1: pistonTop + o, x2: bore / 2 - 3, y2: pistonTop + o, stroke: "var(--accent)", "stroke-width": 1.5 }, g));
+    el("circle", { cx: 0, cy: pinY, r: 7, fill: "var(--bg)", stroke: "var(--ink)", "stroke-width": 2.5 }, g);
+    // crank web + pin
+    el("line", { x1: 0, y1: crankY, x2: crankX, y2: crankPY, stroke: "var(--accent)", "stroke-width": 22, "stroke-linecap": "round" }, g);
+    el("circle", { cx: 0, cy: crankY, r: 10, fill: "var(--bg)", stroke: "var(--ink)", "stroke-width": 3 }, g);
+    el("circle", { cx: crankX, cy: crankPY, r: 7, fill: "var(--bg)", stroke: "var(--ink)", "stroke-width": 2.5 }, g);
+    return { g, pinY, pistonTop, crankY, R, bore, stroke, iv, ev };
+  }
+
+  // ---- Figure: labeled parts ----
+  const parts = document.getElementById("fig-parts");
+  if (parts) {
+    const r = drawEngine(parts, 362, 400, 60, 1);
+    const lab = (x1, y1, x2, y2, text, anchor) => {
+      el("line", { x1, y1, x2, y2, stroke: "var(--muted)", "stroke-width": 1.2 }, parts);
+      el("circle", { cx: x1, cy: y1, r: 3.5, fill: "var(--accent)" }, parts);
+      const t = el("text", { x: x2 + (anchor === "end" ? -8 : 8), y: y2 + 5, "text-anchor": anchor, "font-size": 17, "font-weight": 600 }, parts);
+      t.textContent = text;
+    };
+    lab(370, 64, 230, 40, "intake valve", "end");
+    lab(430, 64, 570, 40, "exhaust valve", "start");
+    lab(400, 30, 570, 6, "spark plug", "start");
+    lab(400, 112, 230, 120, "combustion chamber", "end");
+    lab(450, r.pistonTop + 60 + 20, 590, r.pistonTop + 80, "piston", "start");
+    lab(400, (r.pinY + 300) / 2 + 60, 230, 270, "connecting rod", "end");
+    lab(400, 360, 590, 380, "crankshaft", "start");
+    lab(338, 200, 230, 200, "cylinder", "end");
+  }
+
+  // ---- Figure: four strokes ----
+  document.querySelectorAll("#stroke-grid svg[data-angle]").forEach((s) => {
+    drawEngine(s, +s.dataset.angle, 240, 40, 0.92);
+    const t = el("text", { x: 24, y: 30, class: "mono", "font-size": 14, fill: "var(--muted)" }, s);
+    t.textContent = s.dataset.angle + "°";
+  });
+
+  // ---- Widget: crank model ----
+  const svg = document.getElementById("crank-svg");
+  const slider = document.getElementById("crank");
+  const out = document.getElementById("crank-out");
+  const sn = document.getElementById("stroke-name"), ivEl = document.getElementById("iv"), evEl = document.getElementById("ev");
+  function renderCrank() {
+    const a = +slider.value;
+    const r = drawEngine(svg, a, 300, 50, 1);
+    // stroke track on the right
+    const tx = 540, ty = 60, tw = 220;
+    ["Intake", "Compression", "Power", "Exhaust"].forEach((n, i) => {
+      const y = ty + i * 72;
+      const on = r.stroke === n;
+      el("rect", { x: tx, y, width: tw, height: 56, rx: 12, fill: on ? "var(--accent-soft)" : "var(--bg)", stroke: on ? "var(--accent)" : "var(--line-2)", "stroke-width": on ? 2 : 1 }, svg);
+      const t = el("text", { x: tx + 18, y: y + 26, "font-size": 17, "font-weight": on ? 700 : 500, fill: on ? "var(--accent-ink)" : "var(--ink)" }, svg); t.textContent = n;
+      const t2 = el("text", { x: tx + 18, y: y + 45, class: "mono", "font-size": 12.5, fill: "var(--muted)" }, svg); t2.textContent = `${i * 180}°–${(i + 1) * 180}°`;
+    });
+    out.textContent = a + "°";
+    sn.textContent = r.stroke;
+    ivEl.textContent = r.iv > 0.5 ? "Open" : "Closed";
+    evEl.textContent = r.ev > 0.5 ? "Open" : "Closed";
+  }
+  slider.addEventListener("input", renderCrank);
+  renderCrank();
+  let playing = null;
+  document.getElementById("play").addEventListener("click", (e) => {
+    if (playing) { cancelAnimationFrame(playing); playing = null; e.target.textContent = "Play"; return; }
+    e.target.textContent = "Pause";
+    let last = performance.now();
+    const step = (t) => {
+      const dt = t - last; last = t;
+      slider.value = (+slider.value + dt * 0.12) % 720;
+      renderCrank();
+      playing = requestAnimationFrame(step);
+    };
+    playing = requestAnimationFrame(step);
+  });
+
+  // ---- Chart: ideal Otto cycle ----
+  const g = 1.4, Vd = 500, p1 = 1, T1 = 300, dT = 1500;
+  function otto(r) {
+    const Vc = Vd / (r - 1), V1 = Vc + Vd;
+    const p2 = p1 * Math.pow(r, g), T2 = T1 * Math.pow(r, g - 1);
+    const p3 = p2 * (T2 + dT) / T2;
+    const N = 40, pts = [];
+    for (let i = 0; i <= N; i++) { const V = V1 - (V1 - Vc) * i / N; pts.push({ x: V, y: p1 * Math.pow(V1 / V, g) }); }        // 1→2 compression
+    pts.push({ x: Vc, y: p3 });                                                                                           // 2→3 heat addition
+    for (let i = 1; i <= N; i++) { const V = Vc + (V1 - Vc) * i / N; pts.push({ x: V, y: p3 * Math.pow(Vc / V, g) }); }   // 3→4 expansion
+    pts.push({ x: V1, y: p1 });                                                                                           // 4→1 heat rejection
+    return { pts, eta: 1 - Math.pow(r, 1 - g), pmax: p3 };
+  }
+  const cr = document.getElementById("cr"), crOut = document.getElementById("cr-out");
+  const etaEl = document.getElementById("eta"), pmaxEl = document.getElementById("pmax");
+  let chart = null;
+  function data() { return otto(+cr.value); }
+  chart = Manual.chart("pv", (c) => ({
+    type: "scatter",
+    data: { datasets: [{ label: "Otto cycle", data: data().pts, showLine: true, borderColor: c.accent, backgroundColor: c.accentSoft, fill: true, pointRadius: 0, borderWidth: 2.5, tension: 0 }] },
+    options: {
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: (t) => `V ${t.parsed.x.toFixed(0)} cm³ · p ${t.parsed.y.toFixed(1)} bar` } } },
+      scales: {
+        x: { type: "linear", min: 0, max: 700, title: { display: true, text: "Volume (cm³)" }, grid: { color: c.line } },
+        y: { type: "linear", min: 0, max: 160, title: { display: true, text: "Pressure (bar)" }, grid: { color: c.line } },
+      },
+    },
+  }));
+  function updateCycle() {
+    const d = data();
+    crOut.textContent = cr.value;
+    etaEl.textContent = (d.eta * 100).toFixed(1) + "%";
+    pmaxEl.textContent = d.pmax.toFixed(0) + " bar";
+    const inst = chart.instance;
+    if (inst) { inst.data.datasets[0].data = d.pts; inst.update("none"); }
+  }
+  cr.addEventListener("input", updateCycle);
+  document.addEventListener("manual:theme", () => setTimeout(updateCycle, 0));
+  if (window.Chart) updateCycle(); else window.addEventListener("load", () => { chart.redraw(); updateCycle(); });
+});
+</script>
+</body>
+</html>
