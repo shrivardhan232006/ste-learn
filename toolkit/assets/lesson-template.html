@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- TEMPLATE: replace every {{…}} placeholder. Delete component examples you do not use.
+     Keep all prose in ASD-STE100. Run scripts/ste_lint.py on the result. -->
+<title>{{TOPIC_SHORT}} · STE Study Manual</title>
+<meta name="description" content="{{ONE_LINE_SUMMARY}}">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M7 9 L25 6 L27 24 L5 26 Z' fill='%23fbeae3' stroke='%23d97757' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../assets/manual.css">
+<!-- Only if the page has a chart: -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
+<script src="../../assets/manual.js" defer></script>
+</head>
+<body>
+<div class="scrim"></div>
+
+<!-- mobile top bar -->
+<header class="topbar">
+  <a class="brand" href="../../">
+    <svg viewBox="0 0 42 42" aria-hidden="true"><!-- {{TOPIC_GLYPH}} small topic icon, accent stroke -->
+      <path d="M9 12 L33 8 L36 32 L6 34 Z" class="s-accent-soft" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round"/>
+      <g fill="var(--bg)" stroke="var(--accent)" stroke-width="2"><circle cx="9" cy="12" r="3"/><circle cx="33" cy="8" r="3"/><circle cx="36" cy="32" r="3"/><circle cx="6" cy="34" r="3"/></g>
+    </svg>
+    <span class="brand-title">{{TOPIC_SHORT}}</span>
+  </a>
+  <button class="icon-btn" data-action="menu" aria-label="Open contents">Contents</button>
+</header>
+
+<div class="shell">
+  <aside class="sidebar" aria-label="Contents">
+    <a class="brand" href="../../" title="All lessons">
+      <svg viewBox="0 0 42 42" aria-hidden="true">
+        <path d="M9 12 L33 8 L36 32 L6 34 Z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round"/>
+        <g fill="var(--bg)" stroke="var(--accent)" stroke-width="2"><circle cx="9" cy="12" r="3"/><circle cx="33" cy="8" r="3"/><circle cx="36" cy="32" r="3"/><circle cx="6" cy="34" r="3"/></g>
+      </svg>
+      <div>
+        <div class="brand-title">{{TOPIC_SHORT}}</div>
+        <div class="brand-sub">Study manual · Rev {{REV}}</div>
+      </div>
+    </a>
+
+    <nav><ol class="toc"><!-- filled by manual.js from section.chapter --></ol></nav>
+
+    <div class="progress-card" aria-live="polite">
+      <div class="row"><span>Learning checklist</span><span class="count">0 / 0</span></div>
+      <div class="bar"><i></i></div>
+    </div>
+
+    <div class="side-tools">
+      <button class="icon-btn" data-action="theme" type="button">Theme</button>
+      <button class="icon-btn" data-action="reset" type="button">Reset</button>
+      <a class="icon-btn" href="../../" style="text-decoration:none">All lessons</a>
+    </div>
+
+    <p class="side-note">Written in ASD-STE100 Simplified Technical English. {{SOURCES_SHORT}}, {{DATE_LONG}}.</p>
+  </aside>
+
+  <div class="content">
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <p class="eyebrow">Study manual · ASD-STE100 style · {{DATE_SHORT_UPPER}}</p>
+    <h1>{{TITLE}}</h1>
+    <p class="lede">{{LEDE: 2–4 STE sentences. Say what the page explains, what the reader will be able to do, and how the page is organized.}}</p>
+
+    <ul class="chips">
+      <li class="chip">Level: <b>{{LEVEL}}</b></li>
+      <li class="chip">Time: <b>{{MINUTES}} min</b></li>
+      <li class="chip">Goal: <b>{{GOAL}}</b></li>
+    </ul>
+
+    <div class="key-idea">
+      <span class="label">The one idea</span>
+      <p class="big">{{THE_SINGLE_MOST_IMPORTANT_IDEA in one STE sentence}}</p>
+    </div>
+
+    <!-- ===== CHAPTER (repeat) =====
+         id = url slug, data-short = sidebar label (2–4 words). -->
+    <section class="chapter" id="summary" data-short="Summary">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>Summary</h2>
+      <p>{{Top-down summary: max 6 sentences, max 25 words each.}}</p>
+      <ul>
+        <li>{{Key point 1}}</li>
+        <li>{{Key point 2}}</li>
+        <li>{{Key point 3}}</li>
+      </ul>
+    </section>
+
+    <section class="chapter" id="how-it-works" data-short="How it works">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>{{Chapter title}}</h2>
+      <p>{{Opening paragraph. Define each technical noun with <dfn data-term="term">term</dfn> the first time.}}</p>
+
+      <!-- DRAWN DIAGRAM: inline SVG, numbered figure -->
+      <figure class="numbered">
+        <div class="frame pad">
+          <svg viewBox="0 0 800 380" role="img" aria-labelledby="f1t">
+            <title id="f1t">{{Short alt text}}</title>
+            <!-- use theme classes: s-panel, s-accent, s-accent-soft, s-ink, s-line, text.mono, .pill, .callout-num -->
+            <rect x="40" y="60" width="200" height="110" rx="14" class="s-panel" stroke="var(--line-2)"/>
+            <text x="140" y="122" text-anchor="middle" font-size="18" font-weight="600">{{Block A}}</text>
+            <path d="M240 115 H360" class="s-accent-stroke" stroke-width="2.5" marker-end="url(#arrow)"/>
+            <rect x="360" y="60" width="200" height="110" rx="14" class="s-accent-soft" stroke="var(--accent)"/>
+            <text x="460" y="122" text-anchor="middle" font-size="18" font-weight="600">{{Block B}}</text>
+            <g class="pill" transform="translate(262 84)"><rect width="78" height="24" rx="6"/><text x="39" y="16.5" text-anchor="middle">{{flow}}</text></g>
+            <g class="callout-num" transform="translate(560 60)"><circle r="14"/><text>1</text></g>
+            <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker></defs>
+          </svg>
+        </div>
+        <figcaption>{{STE caption: what the figure shows, in 1–2 sentences.}}</figcaption>
+      </figure>
+
+      <!-- TWO-UP FIGURES with letters -->
+      <div class="fig-grid">
+        <figure>
+          <div class="frame warm"><svg viewBox="0 0 480 270"><!-- … --></svg></div>
+          <div class="sub"><span class="l">A</span> {{Panel title}}</div>
+          <figcaption>{{Caption}}</figcaption>
+        </figure>
+        <figure>
+          <div class="frame warm"><svg viewBox="0 0 480 270"><!-- … --></svg></div>
+          <div class="sub"><span class="l">B</span> {{Panel title}}</div>
+          <figcaption>{{Caption}}</figcaption>
+        </figure>
+      </div>
+
+      <!-- REAL PHOTO: prefer Wikimedia Commons / public-domain / CC sources. Always credit + license. -->
+      <figure class="numbered">
+        <div class="frame"><img src="{{IMAGE_URL}}" alt="{{alt}}" loading="lazy"></div>
+        <figcaption>{{STE caption.}}
+          <span class="credit">Photo: <a href="{{SOURCE_PAGE_URL}}">{{Author}}</a>, {{License}}, via {{Wikimedia Commons}}</span>
+        </figcaption>
+      </figure>
+
+      <div class="callout note">
+        <span class="tag">Note</span>
+        <div><p>{{Extra information. A note gives information, not an instruction.}}</p></div>
+      </div>
+
+      <!-- CHECK-IN: one per chapter, at the end. data-answer = key of the right option -->
+      <div class="check" data-answer="b">
+        <span class="label">Check-in · {{Chapter short}}</span>
+        <p class="q">{{One clear question that tests the main idea of this chapter.}}</p>
+        <div class="opts">
+          <button class="opt" type="button" data-k="a"><span class="k">A</span><span>{{Plausible wrong answer}}</span></button>
+          <button class="opt" type="button" data-k="b"><span class="k">B</span><span>{{Correct answer}}</span></button>
+          <button class="opt" type="button" data-k="c"><span class="k">C</span><span>{{Plausible wrong answer}}</span></button>
+        </div>
+        <div class="why"><p>{{Why B is correct, in 1–3 STE sentences.}}</p></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="explore-it" data-short="Explore it">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>{{Explore the model}}</h2>
+      <p>{{Say what to change and what to look for.}}</p>
+
+      <!-- INTERACTIVE WIDGET -->
+      <div class="widget" id="w1">
+        <div class="stage"><svg viewBox="0 0 800 300" id="w1-svg"><!-- drawn by script --></svg></div>
+        <div class="controls">
+          <div class="control"><label for="w1-a">{{Parameter}}</label><input id="w1-a" type="range" min="0" max="100" value="40"><output for="w1-a">40</output></div>
+        </div>
+      </div>
+      <p class="credit" style="margin-bottom:28px">Move the control. {{What changes}}.</p>
+
+      <!-- CHART (Chart.js via Manual.chart, theme-aware) -->
+      <figure class="numbered">
+        <div class="frame"><div class="chart-box"><canvas id="c1" aria-label="{{alt}}"></canvas></div></div>
+        <figcaption>{{Caption. Say where the data comes from, or say that it is calculated from a stated formula.}}</figcaption>
+      </figure>
+
+      <!-- PROCEDURE: numbered steps, imperative, ≤20 words, one action each -->
+      <div class="callout caution">
+        <span class="tag">Caution</span>
+        <div><p>{{Command first. Then the risk.}}</p></div>
+      </div>
+      <ol class="steps">
+        <li>{{Do step one.}}</li>
+        <li>{{If condition, do step two.}}</li>
+      </ol>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>{{Item}}</th><th>{{Value}}</th><th>{{Note}}</th></tr></thead>
+        <tbody><tr><td>…</td><td>…</td><td>…</td></tr></tbody>
+      </table></div>
+    </section>
+
+    <section class="chapter" id="checklist" data-short="Checklist">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>What you can do now</h2>
+      <ul class="checklist">
+        <li><label><input type="checkbox"><span>{{I can explain …}}</span></label></li>
+        <li><label><input type="checkbox"><span>{{I can calculate …}}</span></label></li>
+      </ul>
+    </section>
+
+    <section class="chapter" id="go-further" data-short="Go further">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>Go further</h2>
+      <div class="explore">
+        <div class="card"><span class="label">Deeper</span><h3>{{Direction 1}}</h3><p>{{Why it is the next step}}</p></div>
+        <div class="card"><span class="label">Wider</span><h3>{{Direction 2}}</h3><p>{{Link to a related field}}</p></div>
+        <div class="card"><span class="label">Hands-on</span><h3>{{Direction 3}}</h3><p>{{A small project or calculation}}</p></div>
+      </div>
+      <h4>Sources</h4>
+      <ol><li><a href="{{url}}">{{Source title}}</a></li></ol>
+    </section>
+
+    <section class="chapter" id="glossary" data-short="Glossary">
+      <div class="chapter-head"><span class="num"></span></div>
+      <h2>Glossary</h2>
+      <p>This page uses these technical nouns. Each name has one meaning on this page.</p>
+      <dl class="glossary">
+        <dt>{{term}}</dt><dd>{{One STE sentence definition.}}</dd>
+      </dl>
+    </section>
+
+    <footer class="page-foot">
+      <span>{{TOPIC_SHORT}} · Rev {{REV}} · {{DATE_LONG}}</span>
+      <a href="../../">All lessons →</a>
+    </footer>
+  </main>
+  </div>
+</div>
+
+<script>
+/* Page-specific widgets and charts go here. Use window.Manual.chart(...) for charts. */
+document.addEventListener("DOMContentLoaded", () => {
+  // Example chart:
+  // Manual.chart("c1", (c) => ({ type: "line",
+  //   data: { labels: [...], datasets: [{ label: "…", data: [...], borderColor: c.accent, backgroundColor: c.accentSoft, tension: .3, fill: true }] },
+  //   options: { plugins: { legend: { display: false } }, scales: { x: { grid: { color: c.line } }, y: { grid: { color: c.line } } } } }));
+});
+</script>
+</body>
+</html>
