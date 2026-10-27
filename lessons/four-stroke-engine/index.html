@@ -455,7 +455,7 @@ document.addEventListener("DOMContentLoaded", () => {
       plugins: { legend: { display: false }, tooltip: { callbacks: { label: (t) => `V ${t.parsed.x.toFixed(0)} cm³ · p ${t.parsed.y.toFixed(1)} bar` } } },
       scales: {
         x: { type: "linear", min: 0, max: 700, title: { display: true, text: "Volume (cm³)" }, grid: { color: c.line } },
-        y: { type: "linear", min: 0, max: 160, title: { display: true, text: "Pressure (bar)" }, grid: { color: c.line } },
+        y: { type: "linear", min: 0, max: 120, title: { display: true, text: "Pressure (bar)" }, grid: { color: c.line } },
       },
     },
   }));
